@@ -51,7 +51,7 @@ class Project:
             sys.exit(1)
 
         log.info('found repository {}'.format(result['url']))
-        assert result['url'].startswith('git://github.com')
+        assert '://github.com/' in result['url']
         return GitHubRepos(result['url']).find(version)
 
     def fetch(self, version=None):
